@@ -67,13 +67,13 @@ $diffCommand = ("flyway-dev {0}" -f $diffParams)
 Write-Host $diffCommand
 Invoke-Expression $diffCommand
 
-$applyCommand = ("flyway-dev {0} | flyway-dev {1}" -f $takeParams, $generateParams)  
-Write-Host $applyCommand
-Invoke-Expression $applyCommand
+$takeAndGenerate = ("flyway-dev {0} | flyway-dev {1}" -f $takeParams, $generateParams)  
+Write-Host $takeAndGenerate
+Invoke-Expression $takeAndGenerate
 
 Remove-Item $diffArtifactFilePath
 
 # to make it smarter
-# $result = Invoke-Expression $applyCommand
+# $result = Invoke-Expression $takeAndGenerate
 
 # Write-host $result | ConvertFrom-Json
